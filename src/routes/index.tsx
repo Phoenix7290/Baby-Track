@@ -14,23 +14,23 @@ import { AuthProvider } from '../context/Auth';
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/Baby-Track/",
         element: <Home />,
     },
     {
-        path: "/signin",
+        path: "/Baby-Track/signin",
         element: <PrivateRoute element={<SignIn />} />,
     },
     {
-        path: "/signup",
+        path: "/Baby-Track/signup",
         element: <PrivateRoute element={<SignUp />} />,
     },
     {
-        path: "/settings",
+        path: "/Baby-Track/settings",
         element: <Settings />,
     },
     {
-        path: "/dashboard",
+        path: "/Baby-Track/dashboard",
         element: <DashBoard />,
     },
     {
