@@ -5,10 +5,11 @@ import {
 
 import Home from '../views/Home';
 import Settings from '../views/Settings';
-// import DashBoard from "../views/DashBoard";
+import DashBoard from "../views/DashBoard";
 import NotFound from '../views/NotFound';
 import SignIn from "../views/SingIn";
 import SignUp from "../views/SignUp";
+import Form from "../views/Form";
 import PrivateRoute  from "./private";
 import { AuthProvider } from '../context/Auth';
 
@@ -29,10 +30,14 @@ const router = createBrowserRouter([
         path: "/Baby-Track/settings",
         element: <Settings />,
     },
-    // {
-    //     path: "/Baby-Track/dashboard",
-    //     element: <DashBoard />,
-    // },
+    {
+        path: "/Baby-Track/dashboard",
+        element: <DashBoard />,
+    },
+    {
+        path: "/Baby-Track/form",
+        element: <Form />,
+    },
     {
         path: "*",
         element: <NotFound />,
