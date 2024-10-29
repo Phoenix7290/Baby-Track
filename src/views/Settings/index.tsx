@@ -1,7 +1,13 @@
+import { useTranslation } from 'react-i18next';
+import Header from '../../components/header/index';
+
 export default function Settings() {
+    const { t } = useTranslation();
+
     return (
         <div>
-            <h1>Settings</h1>
+            <Header />
+            <h1>{t("Settings")}</h1>
         </div>
     );
 }
