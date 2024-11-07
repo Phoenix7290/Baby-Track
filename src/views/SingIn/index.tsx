@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../context/Auth/useAuth';
 import { useNavigate } from 'react-router-dom';
+import "../../styles/views/signin.scss";
 
 export default function SignIn() {
     const { t } = useTranslation();
@@ -22,7 +23,7 @@ export default function SignIn() {
     };
 
     return (
-        <div>
+        <div className='signin'>
             <h1>{t("signIn")}</h1>
             <input
                 type="email"
@@ -36,9 +37,9 @@ export default function SignIn() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button onClick={handleSignIn}>{t("form.submit")}</button>
+            <button type='submit' onClick={handleSignIn}>{t("form.submit")}</button>
             {error && <p>{error}</p>}
-            <button onClick={() => navigate('/Baby-Track/signup')}>Go to Sign Up</button>
+            <button type='submit' onClick={() => navigate('/Baby-Track/signup')}>Go to Sign Up</button>
         </div>
     );
 }

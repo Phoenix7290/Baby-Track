@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../../services/supabaseClient';
 import { useNavigate } from 'react-router-dom';
+import "../../styles/views/signup.scss";
 
 export default function SignUp() {
     const { t } = useTranslation();
@@ -21,7 +22,7 @@ export default function SignUp() {
     };
 
     return (
-        <div>
+        <div className='signup'>
             <h1>{t("signUp")}</h1>
             <input
                 type="email"
