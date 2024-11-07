@@ -1,9 +1,9 @@
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../context/Translation/language";
 import { Link } from "react-router-dom";
-import "../../styles/components/header.scss"
+import "../../styles/layout/header.scss"
 
 export default function Header() {
-    const { t } = useTranslation();
+    const { t } = useLanguage();
 
     return (
         <header>

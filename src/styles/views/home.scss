@@ -1,3 +1,39 @@
 .Home {
     text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+
+
+    main {
+        padding: 2rem;
+
+        section {
+            margin-bottom: 2rem;
+
+            h1, h2 {
+                color: #007bff;
+            }
+
+            p {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            ul {
+                display: flex;
+                list-style-type: none;
+                padding: 0;
+                justify-content: center;
+                align-items: center;
+                flex-flow: row wrap;
+                gap: 1rem;
+
+                li {
+                    background: #e9ecef;
+                    margin: 0.5rem 0;
+                    padding: 0.5rem;
+                    border-radius: 4px;
+                }
+            }
+        }    }
 }

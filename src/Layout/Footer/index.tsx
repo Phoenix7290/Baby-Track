@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
-import "../../styles/components/footer.scss";
+import "../../styles/layout/footer.scss";
 
 const Footer = () => {
   const { t } = useTranslation();

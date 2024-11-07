@@ -8,6 +8,7 @@ export default function Settings() {
         <div>
             <Header />
             <h1>{t("Settings")}</h1>
+            
         </div>
     );
 }

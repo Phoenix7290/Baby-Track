@@ -1,8 +1,8 @@
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../context/Translation/language";
 import { Link } from "react-router-dom";
 
 export default function NotFound() {
-    const { t } = useTranslation();
+    const { t } = useLanguage();
 
     return (
         <div>

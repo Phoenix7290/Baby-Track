@@ -1,7 +1,7 @@
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../context/Translation/language";
 
 export default function Form() {
-    const { t } = useTranslation();
+    const { t } = useLanguage();
 
     return (
         <div>
