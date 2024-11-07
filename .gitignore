@@ -25,3 +25,4 @@ dist-ssr
 
 # Security
 src/env/.env.local
+.env

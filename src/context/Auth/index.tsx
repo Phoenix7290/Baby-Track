@@ -1,10 +1,17 @@
-import { useState, ReactNode } from 'react';
-import { createContext} from 'react';
+// Auth/index.tsx
+import { useState, ReactNode, useEffect } from 'react';
+import { createContext } from 'react';
+import { supabase } from '../../services/supabaseClient';
+
+interface User {
+    id: string;
+    email: string;
+}
 
 interface AuthContextType {
-    user: unknown;
-    login: (userData: unknown) => void;
-    logout: () => void;
+    user: User | null;
+    login: (email: string, password: string) => Promise<void>;
+    logout: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -14,13 +21,32 @@ interface AuthProviderProps {
 }
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
-    const [user, setUser] = useState<unknown>(null);
+    const [user, setUser] = useState<User | null>(null);
 
-    const login = (userData: unknown) => {
-        setUser(userData);
+    useEffect(() => {
+        const fetchSession = async () => {
+            const { data } = await supabase.auth.getSession();
+            setUser(data?.session?.user as User || null);
+        };
+        fetchSession();
+
+        const { data: listener } = supabase.auth.onAuthStateChange((_, session) => {
+            setUser(session?.user as User || null);
+        });
+
+        return () => {
+            listener?.subscription.unsubscribe();
+        };
+    }, []);
+
+    const login = async (email: string, password: string) => {
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+        setUser(data.user as User);
     };
 
-    const logout = () => {
+    const logout = async () => {
+        await supabase.auth.signOut();
         setUser(null);
     };
 
@@ -31,4 +57,4 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     );
 };
 
-export { AuthProvider, AuthContext };  
+export { AuthProvider, AuthContext };

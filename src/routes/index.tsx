@@ -16,27 +16,27 @@ import { AuthProvider } from '../context/Auth';
 const router = createBrowserRouter([
     {
         path: "/Baby-Track/",
-        element: <Home />,
+        element: <PrivateRoute element={<Home />} />, 
     },
     {
         path: "/Baby-Track/signin",
-        element: <PrivateRoute element={<SignIn />} />,
+        element: <SignIn />, 
     },
     {
         path: "/Baby-Track/signup",
-        element: <PrivateRoute element={<SignUp />} />,
+        element: <SignUp />, 
     },
     {
         path: "/Baby-Track/settings",
-        element: <Settings />,
+        element: <PrivateRoute element={<Settings />} />, 
     },
     {
         path: "/Baby-Track/dashboard",
-        element: <DashBoard />,
+        element: <PrivateRoute element={<DashBoard />} />, 
     },
     {
         path: "/Baby-Track/form",
-        element: <Form />,
+        element: <PrivateRoute element={<Form />} />, 
     },
     {
         path: "*",
@@ -44,12 +44,13 @@ const router = createBrowserRouter([
     },
 ]);
 
-const routes = () => {
+
+const Routes = () => {
     return (
         <AuthProvider>
-            <RouterProvider router={router}/>
+            <RouterProvider router={router} />
         </AuthProvider>
     );
 }
 
-export default routes;
+export default Routes;
