@@ -6,6 +6,7 @@
     "DashBoard": "Tablero",
     "not_found": "Página no encontrada",
     "go_back_home": "Volver a Inicio",
+    "form_title": "Formulario",
     "form": {
         "email": "Correo Electrónico",
         "password": "Contraseña",
@@ -15,5 +16,17 @@
     },
     "settings": "Configuraciones",
     "developed_by": "Desarrollado por Marcos Ryan",
-    "all_rights_reserved": "©2024 Marcos Ryan. Todos los derechos reservados."
+    "all_rights_reserved": "©2024 Marcos Ryan. Todos los derechos reservados.",
+    "alert_title": "Presionaste el Botón",
+    "alert_text": "Este es un texto de alerta.",
+    "button_alert": "Mostrar Alerta",
+    "welcome": "Bienvenido a BabyTrack",
+    "monitor_baby": "Monitorea el crecimiento y las actividades de tu bebé con facilidad.",
+    "features": "Características",
+    "track_milk": "Rastrear la ingesta de leche",
+    "monitor_weight": "Monitorear el peso (Kgs)",
+    "date_of_birth": "Registrar fecha de nacimiento",
+    "sleep": "Registrar patrones de sueño",
+    "etc": "Y mucho más...",
+    "dashboard": "Tablero"
 }

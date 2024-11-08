@@ -6,8 +6,8 @@ import { LanguageContext } from "./language";
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     const languages = {
-        en: { nativveName: 'English' },
-        'pt-BR': { nativveName: 'Português' },
+        en: { nativeName: 'English' },
+        pt: { nativeName: 'Português' },
     };
     const { t, i18n } = useTranslation();
 

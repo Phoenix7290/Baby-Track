@@ -5,7 +5,7 @@ interface LanguageContextProps {
     t: TFunction;
     i18n: i18n;
     onClickLanguageChange: (lng: { target: { value: string; }; }) => void;
-    languages: { [key: string]: { nativveName: string } };
+    languages: { [key: string]: { nativeName: string } };
 }
 
 export const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);

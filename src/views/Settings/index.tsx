@@ -7,7 +7,7 @@ export default function Settings() {
     return (
         <div>
             <Header />
-            <h1>{t("Settings")}</h1>
+            <h1>{t("settings")}</h1>
             
         </div>
     );

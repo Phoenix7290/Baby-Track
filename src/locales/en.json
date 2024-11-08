@@ -6,6 +6,7 @@
     "DashBoard": "Dashboard",
     "not_found": "Page not found",
     "go_back_home": "Go Back Home",
+    "form_title": "Form",
     "form": {
         "email": "Email",
         "password": "Password",
@@ -15,5 +16,17 @@
     },
     "settings": "Settings",
     "developed_by": "Developed by Marcos Ryan",
-    "all_rights_reserved": "©2024 Marcos Ryan. All rights reserved."
+    "all_rights_reserved": "©2024 Marcos Ryan. All rights reserved.",
+    "alert_title": "You Pressed the Button",
+    "alert_text": "This is an alert text.",
+    "button_alert": "Show Alert",
+    "welcome": "Welcome to BabyTrack",
+    "monitor_baby": "Monitor your baby's growth and activities with ease.",
+    "features": "Features",
+    "track_milk": "Track milk intake",
+    "monitor_weight": "Monitor weight (Kgs)",
+    "date_of_birth": "Record date of birth",
+    "sleep": "Log sleep patterns",
+    "etc": "And much more...",
+    "dashboard": "Dashboard"
 }

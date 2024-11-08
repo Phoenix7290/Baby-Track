@@ -1,6 +1,4 @@
-// Auth/index.tsx
-import { useState, ReactNode, useEffect } from 'react';
-import { createContext } from 'react';
+import { useState, ReactNode, useEffect, createContext } from 'react';
 import { supabase } from '../../services/supabaseClient';
 
 interface User {

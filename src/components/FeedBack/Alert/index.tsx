@@ -15,7 +15,7 @@ const Alert = () => {
     }
 
     return (
-        <Button onClick={showAlert}>Show Alert</Button>
+        <Button onClick={showAlert}>{t("button_alert")}</Button>
     )
 }
 

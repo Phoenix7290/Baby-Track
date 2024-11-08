@@ -10,7 +10,7 @@ import NotFound from '../views/NotFound';
 import SignIn from "../views/SingIn";
 import SignUp from "../views/SignUp";
 import Form from "../views/Form";
-import PrivateRoute  from "./private";
+import PrivateRoute from "./private";
 import { AuthProvider } from '../context/Auth';
 
 const router = createBrowserRouter([
@@ -43,7 +43,6 @@ const router = createBrowserRouter([
         element: <NotFound />,
     },
 ]);
-
 
 const Routes = () => {
     return (

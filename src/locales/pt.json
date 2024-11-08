@@ -1,0 +1,32 @@
+{
+    "app_title": "Baby Track",
+    "home": "Início",
+    "signIn": "Entrar",
+    "signUp": "Cadastrar-se",
+    "DashBoard": "Painel de Controle",
+    "not_found": "Página não encontrada",
+    "go_back_home": "Voltar para Home",
+    "form_title": "Formulário",
+    "form": {
+        "email": "Email",
+        "password": "Senha",
+        "confirm_password": "Confirmar Senha",
+        "submit": "Enviar",
+        "forgot_password": "Esqueceu a Senha?"
+    },
+    "settings": "Configurações",
+    "developed_by": "Desenvolvido por Marcos Ryan",
+    "all_rights_reserved": "©2024 Marcos Ryan. Todos os direitos reservados.",
+    "alert_title": "Você Pressionou o Botão",
+    "alert_text": "Este é um texto de alerta.",
+    "button_alert": "Mostrar Alerta",
+    "welcome": "Bem-vindo ao BabyTrack",
+    "monitor_baby": "Monitore o crescimento e as atividades do seu bebê com facilidade.",
+    "features": "Recursos",
+    "track_milk": "Acompanhar ingestão de leite",
+    "monitor_weight": "Monitorar peso (Kgs)",
+    "date_of_birth": "Registrar data de nascimento",
+    "sleep": "Registrar padrões de sono",
+    "etc": "E muito mais...",
+    "dashboard": "Painel de Controle"
+}

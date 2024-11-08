@@ -16,10 +16,7 @@ export default function Header() {
                         <Link to="/Baby-Track/">{t("home")}</Link>
                     </li>
                     <li>
-                        <Link to="/Baby-Track/signin">{t("signIn")}</Link>
-                    </li>
-                    <li>
-                        <Link to="/Baby-Track/signup">{t("signUp")}</Link>
+                        <Link to="/Baby-Track/form">{t("form_title")}</Link>
                     </li>
                     <li>
                         <Link to="/Baby-Track/settings">{t("settings")}</Link>
