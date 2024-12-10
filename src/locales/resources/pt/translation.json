@@ -1,0 +1,52 @@
+{
+  "alert_title": "Você Pressionou o Botão",
+  "alert_text": "Este é um texto de alerta.",
+  "button_alert": "Mostrar Alerta",
+  "footer": {
+    "developed_by": "Desenvolvido por Marcos Ryan",
+    "all_rights_reserved": "©2024 Marcos Ryan. Todos os direitos reservados."
+  },
+  "header": {
+    "title": "BabyTrack",
+    "navigation": {
+      "home": "Início",
+      "form": "Formulário",
+      "settings": "Configurações"
+    }
+  },
+  "dashboard": "",
+  "not_found": "",
+  "go_back_home": "",
+  "settings": {
+    "title": "Configurações",
+    "change_language": "Mudar Idioma",
+    "baby_info": {
+      "title": "Informações do Bebê",
+      "name": {
+        "label": "Nome"
+      },
+      "birthDate": {
+        "label": "Data de Nascimento"
+      },
+      "length": {
+        "label": "Comprimento"
+      },
+      "weight": {
+        "label": "Peso"
+      }
+    }
+  },
+  "signIn": {
+    "title": "Entrar",
+    "email": "Email",
+    "password": "Senha",
+    "submit": "Enviar",
+    "signup": "Registrar-se"
+  },
+  "signUp": "",
+  "form": {
+    "email": "",
+    "password": "",
+    "submit": ""
+  }
+}

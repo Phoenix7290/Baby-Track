@@ -24,22 +24,22 @@ export default function SignIn() {
 
     return (
         <div className='signin'>
-            <h1>{t("signIn")}</h1>
+            <h1>{t("signIn.title")}</h1>
             <input
                 type="email"
-                placeholder={t("form.email")}
+                placeholder={t("signIn.email")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
             <input
                 type="password"
-                placeholder={t("form.password")}
+                placeholder={t("signIn.password")}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button type='submit' onClick={handleSignIn}>{t("form.submit")}</button>
+            <button type='submit' onClick={handleSignIn}>{t("signIn.submit")}</button>
             {error && <p>{error}</p>}
-            <button type='submit' onClick={() => navigate('/Baby-Track/signup')}>Go to Sign Up</button>
+            <button type='submit' onClick={() => navigate('/Baby-Track/signup')}>{t("signIn.signup")}</button>
         </div>
     );
 }

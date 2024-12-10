@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../../Layout/Header/index';
 import { useLanguage } from "../../context/Translation/language";
 import "../../styles/views/settings.scss";
-
-let counter = 0;
 
 export default function Settings() {
     const { t } = useTranslation();
@@ -19,15 +17,6 @@ export default function Settings() {
         }
     });
 
-    useEffect(() => {
-        const t = setInterval(() => {
-            console.log(++counter);
-        }, 500);
-        return () => {
-            clearInterval(t);
-        };
-    }, []);
-
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setBabyInfo((prev) => ({
@@ -37,6 +26,11 @@ export default function Settings() {
             }
         }));
     };
+
+    const handleLanguageChange = (event: React.MouseEvent<HTMLButtonElement>) => {
+        onClickLanguageChange(event);
+        console.log("Language changed to", event.currentTarget.value);
+    }
 
     return (
         <div className="settings-container">
@@ -49,7 +43,7 @@ export default function Settings() {
                     <button
                         key={lng}
                         value={lng}
-                        onClick={onClickLanguageChange}
+                        onClick={handleLanguageChange}
                         style={{ marginRight: "10px" }}
                     >
                         {languages[lng].nativeName}

@@ -11,19 +11,9 @@
         "developed_by": "Developed by Marcos Ryan",
         "all_rights_reserved": "©2024 Marcos Ryan. All rights reserved."
     },
-    "forgot_password": "Forgot Password?",
     "alert_title": "You Pressed the Button",
     "alert_text": "This is an alert text.",
     "button_alert": "Show Alert",
-    "welcome": "Welcome to BabyTrack",
-    "monitor_baby": "Monitor your baby's growth and activities with ease.",
-    "features": "Features",
-    "track_milk": "Track milk intake",
-    "monitor_weight": "Monitor weight (Kgs)",
-    "date_of_birth": "Record date of birth",
-    "sleep": "Log sleep patterns",
-    "etc": "And much more...",
-    "dashboard": "Dashboard",
     "settings": {
         "title": "Settings",
         "change_language": "Change Language",
@@ -58,5 +48,12 @@
                 }
             }
         }
+    },
+    "signIn": {
+        "title": "Sign In",
+        "email": "Email",
+        "password": "Password",
+        "submit": "Submit",
+        "signup": "Sign Up"
     }
 }

@@ -1,8 +1,26 @@
+import { useState } from "react";
 import { Box, Typography, Grid, Button, Avatar, Paper } from "@mui/material";
 import Footer from "../../Layout/Footer";
 import Header from "../../Layout/Header";
+import FabSleep from '../../components/FAB/sleep.tsx';
+import { mother } from "../../assets/index.ts";
 
 export default function Home() {
+  const [openModal, setOpenModal] = useState<string | null>(null);
+
+  const handleOpenModal = (modalType: string) => {
+    setOpenModal(modalType);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(null);
+  };
+
+  const handleConfirmModal = () => {
+    console.log(`Confirmou ação para: ${openModal}`);
+    handleCloseModal();
+  };
+
   return (
     <>
       <Header />
@@ -10,7 +28,7 @@ export default function Home() {
         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mb: 4 }}>
           <Avatar
             alt="Bebê"
-            src="https://via.placeholder.com/120" 
+            src={mother}
             sx={{ width: 120, height: 120, mb: 2 }}
           />
           <Typography variant="h5" component="h1">
@@ -42,7 +60,7 @@ export default function Home() {
               variant="contained"
               color="primary"
               sx={{ minWidth: 120, height: 80 }}
-              onClick={() => console.log("Navegar para Fraldas")}
+              onClick={() => handleOpenModal('fralda')}
             >
               <Typography>Fralda</Typography>
             </Button>
@@ -52,7 +70,7 @@ export default function Home() {
               variant="contained"
               color="secondary"
               sx={{ minWidth: 120, height: 80 }}
-              onClick={() => console.log("Navegar para Sono")}
+              onClick={() => handleOpenModal('sono')}
             >
               <Typography>Sono</Typography>
             </Button>
@@ -62,7 +80,7 @@ export default function Home() {
               variant="contained"
               color="success"
               sx={{ minWidth: 120, height: 80 }}
-              onClick={() => console.log("Navegar para Alimentação")}
+              onClick={() => handleOpenModal('alimentacao')}
             >
               <Typography>Alimentação</Typography>
             </Button>
@@ -77,6 +95,33 @@ export default function Home() {
             Aqui aparecerão os registros recentes.
           </Typography>
         </Box>
+
+        <FabSleep
+          open={openModal === 'fralda'}
+          onClose={handleCloseModal}
+          title="Registro de Fralda"
+          content="Deseja registrar uma troca de fralda?"
+          onSave={() => console.log('Save action')}
+          onConfirm={handleConfirmModal}
+        />
+
+        <FabSleep
+          open={openModal === 'sono'}
+          onClose={handleCloseModal}
+          title="Registro de Sono"
+          content="Deseja registrar um ciclo de sono?"
+          onSave={() => console.log('Save action')}
+          onConfirm={handleConfirmModal}
+        />
+
+        <FabSleep
+          open={openModal === 'alimentacao'}
+          onClose={handleCloseModal}
+          title="Registro de Alimentação"
+          content="Deseja registrar uma alimentação?"
+          onSave={() => console.log('Save action')}
+          onConfirm={handleConfirmModal}
+        />
       </Box>
       <Footer />
     </>

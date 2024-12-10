@@ -3,11 +3,10 @@ import { createRoot } from 'react-dom/client';
 
 import Routes from './routes';
 
-import { LanguageProvider } from './context/Translation/index.js';
-
-import './config/i18n.js';
+import './config/i18n';
 
 import "./styles/global.scss";
+import { LanguageProvider } from './context/Translation';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -40,7 +40,6 @@ const FormModal: React.FC<FormModalProps> = ({ open, onClose, onSave, title }) =
           label="Select Date and Time"
           value={selectedDateTime}
           onChange={(dateTime) => setSelectedDateTime(dateTime)}
-          renderInput={(params) => <TextField {...params} fullWidth />}
         />
         <TextField
           label="Text Field"

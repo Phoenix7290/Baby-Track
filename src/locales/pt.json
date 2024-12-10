@@ -1,32 +1,60 @@
 {
-    "app_title": "Baby Track",
-    "home": "Início",
-    "signIn": "Entrar",
-    "signUp": "Cadastrar-se",
-    "DashBoard": "Painel de Controle",
-    "not_found": "Página não encontrada",
-    "go_back_home": "Voltar para Home",
-    "form_title": "Formulário",
-    "form": {
-        "email": "Email",
-        "password": "Senha",
-        "confirm_password": "Confirmar Senha",
-        "submit": "Enviar",
-        "forgot_password": "Esqueceu a Senha?"
+    "header": {
+        "title": "BabyTrack",
+        "navigation": {
+            "home": "Início",
+            "form": "Formulário",
+            "settings": "Configurações"
+        }
     },
-    "settings": "Configurações",
-    "developed_by": "Desenvolvido por Marcos Ryan",
-    "all_rights_reserved": "©2024 Marcos Ryan. Todos os direitos reservados.",
+    "footer": {
+        "developed_by": "Desenvolvido por Marcos Ryan",
+        "all_rights_reserved": "©2024 Marcos Ryan. Todos os direitos reservados."
+    },
+    "forgot_password": "Esqueceu a Senha?",
     "alert_title": "Você Pressionou o Botão",
     "alert_text": "Este é um texto de alerta.",
     "button_alert": "Mostrar Alerta",
-    "welcome": "Bem-vindo ao BabyTrack",
-    "monitor_baby": "Monitore o crescimento e as atividades do seu bebê com facilidade.",
-    "features": "Recursos",
-    "track_milk": "Acompanhar ingestão de leite",
-    "monitor_weight": "Monitorar peso (Kgs)",
-    "date_of_birth": "Registrar data de nascimento",
-    "sleep": "Registrar padrões de sono",
-    "etc": "E muito mais...",
-    "dashboard": "Painel de Controle"
+    "settings": {
+        "title": "Configurações",
+        "change_language": "Mudar Idioma",
+        "baby_info": {
+            "title": "Informações do Bebê",
+            "name": {
+                "label": "Nome",
+                "errors": {
+                    "required": "Nome do bebê é obrigatório"
+                }
+            },
+            "birthDate": {
+                "label": "Data de Nascimento",
+                "errors": {
+                    "required": "Data de nascimento do bebê é obrigatória",
+                    "future": "A data de nascimento do bebê não pode estar no futuro"
+                }
+            },
+            "length": {
+                "label": "Comprimento",
+                "errors": {
+                    "required": "Comprimento do bebê é obrigatório",
+                    "min": "O comprimento do bebê deve ser maior que 1",
+                    "decimal": "O comprimento do bebê deve ser um número inteiro"
+                }
+            },
+            "weight": {
+                "label": "Peso",
+                "errors": {
+                    "required": "Peso do bebê é obrigatório",
+                    "min": "O peso do bebê deve ser maior que 1"
+                }
+            }
+        }
+    },
+    "signIn": {
+        "title": "Entrar",
+        "email": "Email",
+        "password": "Senha",
+        "submit": "Enviar",
+        "signup": "Registrar-se"
+    }
 }

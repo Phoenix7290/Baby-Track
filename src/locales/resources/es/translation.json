@@ -1,0 +1,59 @@
+{
+  "header": {
+      "title": "BabyTrack",
+      "navigation": {
+          "home": "Inicio",
+          "form": "Formulario",
+          "settings": "Configuraciones"
+      }
+  },
+  "footer": {
+      "developed_by": "Desarrollado por Marcos Ryan",
+      "all_rights_reserved": "©2024 Marcos Ryan. Todos los derechos reservados."
+  },
+  "alert_title": "Presionaste el Botón",
+  "alert_text": "Este es un texto de alerta.",
+  "button_alert": "Mostrar Alerta",
+  "settings": {
+      "title": "Configuraciones",
+      "change_language": "Cambiar Idioma",
+      "baby_info": {
+          "title": "Información del Bebé",
+          "name": {
+              "label": "Nombre",
+              "errors": {
+                  "required": "El nombre del bebé es obligatorio"
+              }
+          },
+          "birthDate": {
+              "label": "Fecha de Nacimiento",
+              "errors": {
+                  "required": "La fecha de nacimiento del bebé es obligatoria",
+                  "future": "La fecha de nacimiento del bebé no puede estar en el futuro"
+              }
+          },
+          "length": {
+              "label": "Longitud",
+              "errors": {
+                  "required": "La longitud del bebé es obligatoria",
+                  "min": "La longitud del bebé debe ser mayor que 1",
+                  "decimal": "La longitud del bebé debe ser un número entero"
+              }
+          },
+          "weight": {
+              "label": "Peso",
+              "errors": {
+                  "required": "El peso del bebé es obligatorio",
+                  "min": "El peso del bebé debe ser mayor que 1"
+              }
+          }
+      }
+  },
+  "signIn": {
+      "title": "Iniciar Sesión",
+      "email": "Correo Electrónico",
+      "password": "Contraseña",
+      "submit": "Enviar",
+      "signup": "Registrarse"
+  }
+}

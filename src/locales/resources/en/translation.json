@@ -1,0 +1,59 @@
+{
+  "header": {
+    "title": "BabyTrack",
+    "navigation": {
+      "home": "Home",
+      "form": "Form",
+      "settings": "Settings"
+    }
+  },
+  "footer": {
+    "developed_by": "Developed by Marcos Ryan",
+    "all_rights_reserved": "©2024 Marcos Ryan. All rights reserved."
+  },
+  "alert_title": "You Pressed the Button",
+  "alert_text": "This is an alert text.",
+  "button_alert": "Show Alert",
+  "settings": {
+    "title": "Settings",
+    "change_language": "Change Language",
+    "baby_info": {
+      "title": "Baby Information",
+      "name": {
+        "label": "Name",
+        "errors": {
+          "required": "Baby name is required"
+        }
+      },
+      "birthDate": {
+        "label": "Birth Date",
+        "errors": {
+          "required": "Baby birth date is required",
+          "future": "Baby birth date can't be in the future"
+        }
+      },
+      "length": {
+        "label": "Length",
+        "errors": {
+          "required": "Baby length is required",
+          "min": "Baby length must be greater than 1",
+          "decimal": "Baby length must be an integer"
+        }
+      },
+      "weight": {
+        "label": "Weight",
+        "errors": {
+          "required": "Baby weight is required",
+          "min": "Baby weight must be greater than 1"
+        }
+      }
+    }
+  },
+  "signIn": {
+    "title": "Sign In",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Submit",
+    "signup": "Sign Up"
+  }
+}

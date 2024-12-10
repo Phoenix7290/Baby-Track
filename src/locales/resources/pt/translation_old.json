@@ -1,0 +1,31 @@
+{
+  "forgot_password": "Esqueceu a Senha?",
+  "settings": {
+    "baby_info": {
+      "name": {
+        "errors": {
+          "required": "Nome do bebê é obrigatório"
+        }
+      },
+      "birthDate": {
+        "errors": {
+          "required": "Data de nascimento do bebê é obrigatória",
+          "future": "A data de nascimento do bebê não pode estar no futuro"
+        }
+      },
+      "length": {
+        "errors": {
+          "required": "Comprimento do bebê é obrigatório",
+          "min": "O comprimento do bebê deve ser maior que 1",
+          "decimal": "O comprimento do bebê deve ser um número inteiro"
+        }
+      },
+      "weight": {
+        "errors": {
+          "required": "Peso do bebê é obrigatório",
+          "min": "O peso do bebê deve ser maior que 1"
+        }
+      }
+    }
+  }
+}
