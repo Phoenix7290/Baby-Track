@@ -1,6 +1,6 @@
 import { useLanguage } from "../../context/Translation/language";
 import { Link } from "react-router-dom";
-import "../../styles/layout/header.scss"
+import "../../styles/layout/header.scss";
 
 export default function Header() {
     const { t } = useLanguage();
@@ -8,18 +8,18 @@ export default function Header() {
     return (
         <header>
             <hgroup>
-                <h1>{t("app_title")}</h1>
+                <h1>{t("header.title")}</h1>
             </hgroup>
             <nav>
                 <ul>
                     <li>
-                        <Link to="/Baby-Track/">{t("home")}</Link>
+                        <Link to="/Baby-Track/">{t("header.navigation.home")}</Link>
                     </li>
                     <li>
-                        <Link to="/Baby-Track/form">{t("form_title")}</Link>
+                        <Link to="/Baby-Track/form">{t("header.navigation.form")}</Link>
                     </li>
                     <li>
-                        <Link to="/Baby-Track/settings">{t("settings")}</Link>
+                        <Link to="/Baby-Track/settings">{t("header.navigation.settings")}</Link>
                     </li>
                 </ul>
             </nav>

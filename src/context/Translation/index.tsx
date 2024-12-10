@@ -8,11 +8,12 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     const languages = {
         en: { nativeName: 'English' },
         pt: { nativeName: 'Português' },
+        es: { nativeName: 'Español' },
     };
     const { t, i18n } = useTranslation();
 
-    const onClickLanguageChange = (lng: { target: { value: string; }; }) => {
-        const language = lng.target.value;
+    const onClickLanguageChange = (event: React.MouseEvent<HTMLButtonElement>) => {
+        const language = (event.target as HTMLButtonElement).value;
         i18n.changeLanguage(language);
     }
 

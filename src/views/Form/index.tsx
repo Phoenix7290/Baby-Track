@@ -8,6 +8,7 @@ export default function Form() {
         <div className="form">
             <Header/>
             <h1>{t("form_title")}</h1>
+            
         </div>
     );
 }

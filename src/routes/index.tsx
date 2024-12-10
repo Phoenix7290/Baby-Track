@@ -3,13 +3,15 @@ import {
     RouterProvider,
 } from "react-router-dom";
 
-import Home from '../views/Home';
-import Settings from '../views/Settings';
-import DashBoard from "../views/DashBoard";
-import NotFound from '../views/NotFound';
-import SignIn from "../views/SingIn";
-import SignUp from "../views/SignUp";
-import Form from "../views/Form";
+import {
+    Home,
+    SignIn,
+    SignUp,
+    Settings,
+    DashBoard,
+    Form,
+    NotFound,
+} from "../views";
 import PrivateRoute from "./private";
 import { AuthProvider } from '../context/Auth';
 

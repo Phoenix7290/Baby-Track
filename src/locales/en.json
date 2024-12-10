@@ -1,22 +1,17 @@
 {
-    "app_title": "Baby Track",
-    "home": "Home",
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
-    "DashBoard": "Dashboard",
-    "not_found": "Page not found",
-    "go_back_home": "Go Back Home",
-    "form_title": "Form",
-    "form": {
-        "email": "Email",
-        "password": "Password",
-        "confirm_password": "Confirm Password",
-        "submit": "Submit",
-        "forgot_password": "Forgot Password?"
+    "header": {
+        "title": "BabyTrack",
+        "navigation": {
+            "home": "Home",
+            "form": "Form",
+            "settings": "Settings"
+        }
     },
-    "settings": "Settings",
-    "developed_by": "Developed by Marcos Ryan",
-    "all_rights_reserved": "©2024 Marcos Ryan. All rights reserved.",
+    "footer": {
+        "developed_by": "Developed by Marcos Ryan",
+        "all_rights_reserved": "©2024 Marcos Ryan. All rights reserved."
+    },
+    "forgot_password": "Forgot Password?",
     "alert_title": "You Pressed the Button",
     "alert_text": "This is an alert text.",
     "button_alert": "Show Alert",
@@ -28,5 +23,40 @@
     "date_of_birth": "Record date of birth",
     "sleep": "Log sleep patterns",
     "etc": "And much more...",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "settings": {
+        "title": "Settings",
+        "change_language": "Change Language",
+        "baby_info": {
+            "title": "Baby Information",
+            "name": {
+                "label": "Name",
+                "errors": {
+                    "required": "Baby name is required"
+                }
+            },
+            "birthDate": {
+                "label": "Birth Date",
+                "errors": {
+                    "required": "Baby birth date is required",
+                    "future": "Baby birth date can't be in the future"
+                }
+            },
+            "length": {
+                "label": "Length",
+                "errors": {
+                    "required": "Baby length is required",
+                    "min": "Baby length must be greater than 1",
+                    "decimal": "Baby length must be an integer"
+                }
+            },
+            "weight": {
+                "label": "Weight",
+                "errors": {
+                    "required": "Baby weight is required",
+                    "min": "Baby weight must be greater than 1"
+                }
+            }
+        }
+    }
 }

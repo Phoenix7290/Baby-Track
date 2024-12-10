@@ -4,7 +4,7 @@ import { TFunction, i18n } from "i18next";
 interface LanguageContextProps {
     t: TFunction;
     i18n: i18n;
-    onClickLanguageChange: (lng: { target: { value: string; }; }) => void;
+    onClickLanguageChange: (event: React.MouseEvent<HTMLButtonElement>) => void;
     languages: { [key: string]: { nativeName: string } };
 }
 
@@ -16,4 +16,4 @@ export const useLanguage = () => {
         throw new Error('useLanguage must be used within a LanguageProvider');
     }
     return context;
-}
+};

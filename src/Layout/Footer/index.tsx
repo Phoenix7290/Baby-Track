@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 import "../../styles/layout/footer.scss";
 
 const Footer = () => {
@@ -8,25 +9,25 @@ const Footer = () => {
   return (
     <footer>
       <div className="container">
-        <h3>{t("developed_by")}</h3>
-        <p>{t("all_rights_reserved")}</p>
+        <h3>{t("footer.developed_by")}</h3>
+        <p>{t("footer.all_rights_reserved")}</p>
         <div className="social">
           <a
-            href="https://facebook.com"
+            href="https://github.com/Phoenix7290"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaFacebook size={24} />
+            <FaGithub size={24} />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://x.com/MRyan7290"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaTwitter size={24} />
+            <FaSquareXTwitter size={24} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/marcos-ryan-274266268/"
             target="_blank"
             rel="noopener noreferrer"
           >
