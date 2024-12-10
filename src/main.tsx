@@ -7,11 +7,14 @@ import './config/i18n';
 
 import "./styles/global.scss";
 import { LanguageProvider } from './context/Translation';
+import { BabyProvider } from './context/Global/avatar';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <LanguageProvider>
-      <Routes />
+      <BabyProvider>
+        <Routes />
+      </BabyProvider>
     </LanguageProvider>
   </StrictMode>,
 )

@@ -9,7 +9,6 @@ import {
     SignUp,
     Settings,
     DashBoard,
-    Form,
     NotFound,
 } from "../views";
 import PrivateRoute from "./private";
@@ -35,10 +34,6 @@ const router = createBrowserRouter([
     {
         path: "/Baby-Track/dashboard",
         element: <PrivateRoute element={<DashBoard />} />, 
-    },
-    {
-        path: "/Baby-Track/form",
-        element: <PrivateRoute element={<Form />} />, 
     },
     {
         path: "*",

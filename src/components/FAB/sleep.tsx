@@ -1,59 +1,112 @@
-import React, { useState } from 'react';
-import { Dialog, DialogActions, DialogContent, DialogTitle, Button, TextField } from '@mui/material';
-import DatePickerComponent from '../Dates/DatePicker';
+import React, { useEffect, useState } from 'react';
+import { 
+  Dialog, 
+  DialogActions, 
+  DialogContent, 
+  DialogTitle, 
+  Button, 
+  TextField, 
+  Grid 
+} from '@mui/material';
 import DateTimePickerComponent from '../Dates/DateTimePicker';
 
-interface FormModalProps {
+interface FormSleepProps {
   open: boolean;
   onClose: () => void;
-  onSave: (data: unknown) => void;
+  onSave: (data: SleepData) => void;
   title: string;
-  content: string;
-  onConfirm: () => void;
+  initialData?: SleepData;
 }
 
-const FormModal: React.FC<FormModalProps> = ({ open, onClose, onSave, title }) => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [selectedDateTime, setSelectedDateTime] = useState<Date | null>(null);
-  const [textFieldValue, setTextFieldValue] = useState<string>('');
+interface SleepData {
+  startTime: Date | null;
+  endTime: Date | null;
+  description: string;
+}
+
+const FormSleep: React.FC<FormSleepProps> = ({
+  open,
+  onClose,
+  onSave,
+  title,
+  initialData
+}) => {
+  const [startTime, setStartTime] = useState<Date | null>(
+    initialData?.startTime || null
+  );
+  const [endTime, setEndTime] = useState<Date | null>(
+    initialData?.endTime || null
+  );
+  const [description, setDescription] = useState<string>(
+    initialData?.description || ''
+  );
+
+  // Reset fields when modal closes
+  useEffect(() => {
+    if (!open) {
+      setStartTime(null);
+      setEndTime(null);
+      setDescription('');
+    }
+  }, [open]);
 
   const handleSave = () => {
-    const data = {
-      date: selectedDate,
-      dateTime: selectedDateTime,
-      text: textFieldValue,
+    // Validate that start time is before end time
+    if (startTime && endTime && startTime > endTime) {
+      alert('Horário de início deve ser anterior ao horário de fim');
+      return;
+    }
+
+    const data: SleepData = {
+      startTime,
+      endTime,
+      description,
     };
+
     onSave(data);
     onClose();
   };
 
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
-        <DatePickerComponent
-          label="Select Date"
-          value={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
-        />
-        <DateTimePickerComponent
-          label="Select Date and Time"
-          value={selectedDateTime}
-          onChange={(dateTime) => setSelectedDateTime(dateTime)}
-        />
-        <TextField
-          label="Text Field"
-          value={textFieldValue}
-          onChange={(e) => setTextFieldValue(e.target.value)}
-          fullWidth
-        />
+        <Grid container spacing={2} sx={{ mt: 1 }}>
+          <Grid item xs={12}>
+            <DateTimePickerComponent
+              label="Horário de Início do Sono"
+              value={startTime}
+              onChange={(dateTime) => setStartTime(dateTime)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <DateTimePickerComponent
+              label="Horário de Fim do Sono"
+              value={endTime}
+              onChange={(dateTime) => setEndTime(dateTime)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="Descrição do Sono"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              fullWidth
+              multiline
+              rows={3}
+              placeholder="Detalhes sobre o sono (ex: dormiu profundamente, acordou inquieto)"
+            />
+          </Grid>
+        </Grid>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={handleSave}>Save</Button>
+        <Button onClick={onClose}>Cancelar</Button>
+        <Button onClick={handleSave} variant="contained" color="primary">
+          Salvar
+        </Button>
       </DialogActions>
     </Dialog>
   );
 };
 
-export default FormModal;
+export default FormSleep;

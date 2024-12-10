@@ -5,6 +5,7 @@ header {
     text-align: center;
     color: white;
     justify-content: space-between;
+    align-items: center;
 
     hgroup {
         margin: 0;
@@ -16,14 +17,38 @@ header {
     }
 
     nav {
-        margin-top: 1rem;
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+
+            .bar {
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                margin: 4px 0;
+                transition: 0.4s;
+            }
+
+            &.open .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 5px);
+            }
+
+            &.open .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            &.open .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -5px);
+            }
+        }
 
         ul {
             list-style: none;
             padding: 0;
+            display: flex;
 
             li {
-                display: inline;
                 margin: 0 1rem;
 
                 a {
@@ -35,6 +60,33 @@ header {
                     &:hover {
                         color: #61dafb;
                     }
+                }
+            }
+        }
+
+        .menu {
+            display: flex;
+
+            &.open {
+                display: block;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            .hamburger {
+                display: flex;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+
+                li {
+                    margin: 1rem 0;
                 }
             }
         }

@@ -10,12 +10,14 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "generate-locales": "i18next 'src/**/*.{ts,tsx}' --config i18next-parser.config.js"
   },
   "dependencies": {
     "@date-io/dayjs": "^3.0.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.1.10",
     "@mui/lab": "^6.0.0-beta.18",
     "@mui/material": "^6.1.10",
     "@mui/x-date-pickers": "^7.23.1",

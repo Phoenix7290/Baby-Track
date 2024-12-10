@@ -3,7 +3,7 @@
         "title": "BabyTrack",
         "navigation": {
             "home": "Home",
-            "form": "Form",
+            "dashboard": "Dashboard",
             "settings": "Settings"
         }
     },
@@ -17,6 +17,7 @@
     "settings": {
         "title": "Settings",
         "change_language": "Change Language",
+        "logout": "Logout",
         "baby_info": {
             "title": "Baby Information",
             "name": {
