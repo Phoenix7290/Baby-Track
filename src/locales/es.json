@@ -3,7 +3,7 @@
         "title": "BabyTrack",
         "navigation": {
             "home": "Inicio",
-            "form": "Formulario",
+            "dashboard": "Tablero",
             "settings": "Configuraciones"
         }
     },
@@ -11,11 +11,13 @@
         "developed_by": "Desarrollado por Marcos Ryan",
         "all_rights_reserved": "©2024 Marcos Ryan. Todos los derechos reservados."
     },
+    "forgot_password": "¿Olvidaste tu contraseña?",
     "alert_title": "Presionaste el Botón",
     "alert_text": "Este es un texto de alerta.",
     "button_alert": "Mostrar Alerta",
     "settings": {
         "title": "Configuraciones",
+        "logout": "Cerrar Sesión",
         "change_language": "Cambiar Idioma",
         "baby_info": {
             "title": "Información del Bebé",
@@ -55,5 +57,63 @@
         "password": "Contraseña",
         "submit": "Enviar",
         "signup": "Registrarse"
+    },
+    "reports": {
+        "title": "Informes",
+        "empty": "No hay informes disponibles.",
+        "sleep": {
+            "title": "Sueño",
+            "start": "Inicio del Sueño:",
+            "end": "Fin del Sueño:",
+            "edit_title": "Editar Registro de Sueño",
+            "new_title": "Nuevo Registro de Sueño",
+            "time_error": "La hora de inicio debe ser antes de la hora de fin",
+            "description_placeholder": "Detalles sobre el sueño (por ejemplo, durmió profundamente, se despertó inquieto)"
+        },
+        "feed": {
+            "start": "Inicio de la Alimentación:",
+            "end": "Fin de la Alimentación:",
+            "bottle": "Biberón",
+            "breast": "Pecho",
+            "quantity": "Cantidad",
+            "breast_side": "Lado del Pecho",
+            "right": "Derecho",
+            "left": "Izquierdo",
+            "both": "Ambos",
+            "time_error": "La hora de inicio debe ser antes de la hora de fin",
+            "edit_title": "Editar Registro de Alimentación",
+            "new_title": "Nuevo Registro de Alimentación",
+            "description_placeholder": "Detalles sobre la alimentación (por ejemplo, el bebé parecía satisfecho, tragó bien)"
+        },
+        "diaper": {
+            "title": "Cambio de Pañal",
+            "type": "Tipo:",
+            "pee": "Orina",
+            "poo": "Heces",
+            "status": "Estado del pañal:",
+            "time": "Hora del cambio:",
+            "clean": "Limpio",
+            "wet": "Mojado",
+            "dirty": "Sucio",
+            "both": "Ambos",
+            "edit_title": "Editar Registro de Pañal",
+            "new_title": "Nuevo Registro de Pañal"
+        },
+        "description": "Descripción:"
+    },
+    "common": {
+        "cancel": "Cancelar",
+        "save": "Guardar"
+    },
+    "actions": {
+        "diaper": "Pañal",
+        "sleep": "Sueño",
+        "feed": "Alimentar"
+    },
+    "baby_info": {
+        "avatar_alt": "Bebé",
+        "default_name": "Bebé",
+        "length": "Longitud",
+        "weight": "Peso"
     }
 }

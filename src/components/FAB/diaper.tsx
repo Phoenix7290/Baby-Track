@@ -13,6 +13,7 @@ import {
   SelectChangeEvent 
 } from '@mui/material';
 import DateTimePickerComponent from '../Dates/DateTimePicker';
+import { useLanguage } from '../../context/Translation/language';
 
 interface FormDiaperProps {
   open: boolean;
@@ -39,6 +40,8 @@ const FormDiaper: React.FC<FormDiaperProps> = ({
     initialData?.dateTime ? new Date(initialData.dateTime) : new Date()
   );
 
+  const { t } = useLanguage();
+
   const [diaperStatus, setDiaperStatus] = useState<string>(
     initialData?.diaperStatus || 'limpa'
   );
@@ -47,7 +50,6 @@ const FormDiaper: React.FC<FormDiaperProps> = ({
     initialData?.description || ''
   );
 
-  // Reset fields when modal closes
   useEffect(() => {
     if (!open) {
       setSelectedDateTime(new Date());
@@ -72,31 +74,31 @@ const FormDiaper: React.FC<FormDiaperProps> = ({
   };
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
+<Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
         <DateTimePickerComponent
-          label="Horário da Troca"
-          dateTime={selectedDateTime}
-          setDateTime={setSelectedDateTime}
+          label={t("reports.diaper.time")}
+          value={selectedDateTime}
+          onChange={setSelectedDateTime}
         />
 
         <FormControl fullWidth sx={{ mt: 2, mb: 2 }}>
-          <InputLabel>Status da Fralda</InputLabel>
+          <InputLabel>{t("reports.diaper.status")}</InputLabel>
           <Select
             value={diaperStatus}
-            label="Status da Fralda"
+            label={t("reports.diaper.status")}
             onChange={handleStatusChange}
           >
-            <MenuItem value="limpa">Limpa</MenuItem>
-            <MenuItem value="urina">Suja de Urina</MenuItem>
-            <MenuItem value="fezes">Suja de Fezes</MenuItem>
-            <MenuItem value="ambas">Suja de Ambas</MenuItem>
+            <MenuItem value="limpa">{t("reports.diaper.clean")}</MenuItem>
+            <MenuItem value="urina">{t("reports.diaper.wet")}</MenuItem>
+            <MenuItem value="fezes">{t("reports.diaper.dirty")}</MenuItem>
+            <MenuItem value="ambas">{t("reports.diaper.both")}</MenuItem>
           </Select>
         </FormControl>
 
         <TextField
-          label="Observações"
+          label={t("reports.description")}
           multiline
           rows={3}
           value={description}
@@ -107,10 +109,10 @@ const FormDiaper: React.FC<FormDiaperProps> = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose} color="secondary">
-          Cancelar
+          {t("common.cancel")}
         </Button>
         <Button onClick={handleSave} color="primary">
-          Salvar
+          {t("common.save")}
         </Button>
       </DialogActions>
     </Dialog>

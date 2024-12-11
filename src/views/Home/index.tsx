@@ -9,16 +9,19 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { saveReport, getReports, updateReport, deleteReport } from '../../utils/localStorage.ts';
 import calculateAge from "../../utils/calculateAge.ts";
 import { useBabyContext } from "../../context/Global/avatar.tsx";
+import { useLanguage } from "../../context/Translation/language.tsx";
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<string | null>(null);
   const [reports, setReports] = useState<any[]>([]);
   const [editingReport, setEditingReport] = useState<any | null>(null);
   const { babyInfo } = useBabyContext();
-  const age = babyInfo.birthDate 
-    ? calculateAge(new Date(babyInfo.birthDate)) 
+  const age = babyInfo.birthDate
+    ? calculateAge(new Date(babyInfo.birthDate))
     : '0 dias';
-  
+
+
+  const { t } = useLanguage();
 
   const handleOpenModal = (modalType: string) => {
     setOpenModal(modalType);
@@ -61,36 +64,36 @@ export default function Home() {
     <>
       <Header />
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mb: 4 }}>
-      <Avatar
-        alt="Bebê"
-        src={mother}
-        sx={{ width: 120, height: 120, mb: 2 }}
-      />
-      <Typography variant="h5" component="h1">
-        {babyInfo.name || 'Bebê'}
-      </Typography>
-      <Typography variant="body2" color="textSecondary">
-        {age}
-      </Typography>
+        <Avatar
+          alt={t("baby_info.avatar_alt")}
+          src={mother}
+          sx={{ width: 120, height: 120, mb: 2 }}
+        />
+        <Typography variant="h5" component="h1">
+          {babyInfo.name || t("baby_info.default_name")}
+        </Typography>
+        <Typography variant="body2" color="textSecondary">
+          {age}
+        </Typography>
 
-      <Grid container justifyContent="center" spacing={2} sx={{ mb: 4 }}>
-        <Grid item>
-          <Paper sx={{ padding: 2, textAlign: "center", minWidth: 120 }}>
-            <Typography variant="body1">Comprimento</Typography>
-            <Typography variant="h6">
-              {babyInfo.length ? `${babyInfo.length} cm` : '- '}
-            </Typography>
-          </Paper>
+        <Grid container justifyContent="center" spacing={2} sx={{ mb: 4 }}>
+          <Grid item>
+            <Paper sx={{ padding: 2, textAlign: "center", minWidth: 120 }}>
+              <Typography variant="body1">{t("baby_info.length")}</Typography>
+              <Typography variant="h6">
+                {babyInfo.length ? `${babyInfo.length} cm` : '- '}
+              </Typography>
+            </Paper>
+          </Grid>
+          <Grid item>
+            <Paper sx={{ padding: 2, textAlign: "center", minWidth: 120 }}>
+              <Typography variant="body1">{t("baby_info.weight")}</Typography>
+              <Typography variant="h6">
+                {babyInfo.weight ? `${babyInfo.weight} kg` : '- '}
+              </Typography>
+            </Paper>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Paper sx={{ padding: 2, textAlign: "center", minWidth: 120 }}>
-            <Typography variant="body1">Peso</Typography>
-            <Typography variant="h6">
-              {babyInfo.weight ? `${babyInfo.weight} kg` : '- '}
-            </Typography>
-          </Paper>
-        </Grid>
-      </Grid>
 
         <Grid container justifyContent="center" spacing={2} sx={{ mb: 4 }}>
           <Grid item>
@@ -100,7 +103,7 @@ export default function Home() {
               sx={{ minWidth: 120, height: 80 }}
               onClick={() => handleOpenModal('fralda')}
             >
-              <Typography>Fralda</Typography>
+              <Typography>{t("actions.diaper")}</Typography>
             </Button>
           </Grid>
           <Grid item>
@@ -110,7 +113,7 @@ export default function Home() {
               sx={{ minWidth: 120, height: 80 }}
               onClick={() => handleOpenModal('sono')}
             >
-              <Typography>Sono</Typography>
+              <Typography>{t("actions.sleep")}</Typography>
             </Button>
           </Grid>
           <Grid item>
@@ -120,18 +123,18 @@ export default function Home() {
               sx={{ minWidth: 120, height: 80 }}
               onClick={() => handleOpenModal('alimentacao')}
             >
-              <Typography>Alimentação</Typography>
+              <Typography>{t("actions.feed")}</Typography>
             </Button>
           </Grid>
         </Grid>
 
         <Box sx={{ mt: 4, backgroundColor: "#ffffff", padding: 2, borderRadius: 2 }}>
           <Typography variant="h6" gutterBottom>
-            Relatórios
+            {t("reports.title")}
           </Typography>
           {reports.length === 0 ? (
             <Typography variant="body2" color="textSecondary">
-              Aqui aparecerão os registros recentes.
+              {t("reports.empty")}
             </Typography>
           ) : (
             reports.map((report) => (
@@ -140,44 +143,44 @@ export default function Home() {
                   <Typography variant="body1">
                     {report.type === 'sono' && (
                       <>
-                        <Typography>Sono</Typography>
+                        <Typography>{t("reports.sleep.title")}</Typography>
                         <Typography variant="body2" color="textSecondary">
-                          Início do Sono: {new Date(report.startTime).toLocaleString()}
+                          {t("reports.sleep.start")} {new Date(report.startTime).toLocaleString()}
                         </Typography>
                         <Typography variant="body2" color="textSecondary">
-                          Fim do Sono: {new Date(report.endTime).toLocaleString()}
+                          {t("reports.sleep.end")} {new Date(report.endTime).toLocaleString()}
                         </Typography>
                       </>
                     )}
                     {report.type === 'fralda' && (
                       <>
-                      <Typography variant="body1">Troca de Fralda</Typography>
-                      <Typography variant="body2" color="textSecondary">
-                        Hora da troca: {new Date(report.dateTime).toLocaleString()}
-                      </Typography>
-                      <Typography variant="body2" color="textSecondary">
-                        Status da fralda: {report.diaperStatus}
-                      </Typography>
+                        <Typography variant="body1">{t("reports.diaper.title")}</Typography>
+                        <Typography variant="body2" color="textSecondary">
+                          {t("reports.diaper.time")} {new Date(report.dateTime).toLocaleString()}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary">
+                          {t("reports.diaper.status")} {report.diaperStatus}
+                        </Typography>
                       </>
                     )}
                     {report.type === 'alimentacao' && (
                       <>
                         <Typography variant="body1">
                           {report.feedingType === 'mamadeira'
-                            ? `Mamadeira (${report.quantity}ml)`
-                            : `Amamentação (${report.breastSide})`}
+                            ? `${t("reports.feed.bottle")} (${report.quantity}ml)`
+                            : `${t("reports.feed.milk")} (${report.breastSide})`}
                         </Typography>
                         <Typography variant="body2" color="textSecondary">
-                          Início: {new Date(report.startTime).toLocaleString()}
+                          {t("reports.feed.start")} {new Date(report.startTime).toLocaleString()}
                         </Typography>
                         <Typography variant="body2" color="textSecondary">
-                          Fim: {new Date(report.endTime).toLocaleString()}
+                          {t("reports.feed.end")}{new Date(report.endTime).toLocaleString()}
                         </Typography>
                       </>
                     )}
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
-                    Descrição: {report.description}
+                    {t("reports.description")} {report.description}
                   </Typography>
                 </Box>
                 <Box>
@@ -202,7 +205,7 @@ export default function Home() {
         <FabDiaper
           open={openModal === 'fralda'}
           onClose={handleCloseModal}
-          title={editingReport ? "Editar Registro de Fralda" : "Registro de Fralda"}
+          title={editingReport ? t("reports.diaper.edit_title") : t("reports.diaper.new_title")}
           onSave={(data) => handleSaveReport('fralda', data)}
           initialData={editingReport}
         />
@@ -210,7 +213,7 @@ export default function Home() {
         <FabSleep
           open={openModal === 'sono'}
           onClose={handleCloseModal}
-          title={editingReport ? "Editar Registro de Sono" : "Registro de Sono"}
+          title={editingReport ? t("reports.sleep.edit_title") : t("reports.sleep.new_title")}
           onSave={(data) => handleSaveReport('sono', data)}
           initialData={editingReport}
         />
@@ -218,7 +221,7 @@ export default function Home() {
         <FabFood
           open={openModal === 'alimentacao'}
           onClose={handleCloseModal}
-          title={editingReport ? "Editar Registro de Alimentação" : "Registro de Alimentação"}
+          title={editingReport ? t("reports.feed.edit_title") : t("reports.feed.new_title")}
           onSave={(data) => handleSaveReport('alimentacao', data)}
           initialData={editingReport}
         />

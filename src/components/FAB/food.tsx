@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { 
-  Dialog, 
-  DialogActions, 
-  DialogContent, 
-  DialogTitle, 
-  Button, 
-  TextField, 
-  Grid, 
-  Select, 
-  MenuItem, 
-  FormControl, 
-  InputLabel, 
-  RadioGroup, 
-  FormControlLabel, 
-  Radio, 
-  Typography 
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Button,
+  TextField,
+  Grid,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  Typography
 } from '@mui/material';
 import DateTimePickerComponent from '../Dates/DateTimePicker';
+import { useLanguage } from '../../context/Translation/language';
 
 interface FeedingData {
   startTime: Date | null;
   endTime: Date | null;
   feedingType: 'mamadeira' | 'seio';
-  quantity?: number;  // for bottle feeding
-  breastSide?: 'direito' | 'esquerdo' | 'ambos';  // for breastfeeding
+  quantity?: number;
+  breastSide?: 'direito' | 'esquerdo' | 'ambos';
   description: string;
 }
 
@@ -61,7 +62,8 @@ const FormFood: React.FC<FormFoodProps> = ({
     initialData?.description || ''
   );
 
-  // Reset fields when modal closes
+  const { t } = useLanguage();
+
   useEffect(() => {
     if (!open) {
       setStartTime(null);
@@ -74,9 +76,8 @@ const FormFood: React.FC<FormFoodProps> = ({
   }, [open]);
 
   const handleSave = () => {
-    // Validate that start time is before end time
     if (startTime && endTime && startTime > endTime) {
-      alert('Horário de início deve ser anterior ao horário de fim');
+      alert(t('reports.feed.time_error'));
       return;
     }
 
@@ -100,21 +101,21 @@ const FormFood: React.FC<FormFoodProps> = ({
         <Grid container spacing={2} sx={{ mt: 1 }}>
           <Grid item xs={12}>
             <FormControl fullWidth>
-              <InputLabel>Tipo de Alimentação</InputLabel>
+              <InputLabel>{t('reports.feed.type')}</InputLabel>
               <Select
                 value={feedingType}
-                label="Tipo de Alimentação"
+                label={t('reports.feed.type')}
                 onChange={(e) => setFeedingType(e.target.value as 'mamadeira' | 'seio')}
               >
-                <MenuItem value="mamadeira">Mamadeira</MenuItem>
-                <MenuItem value="seio">Seio</MenuItem>
+                <MenuItem value="mamadeira">{t('reports.feed.bottle')}</MenuItem>
+                <MenuItem value="seio">{t('reports.feed.breast')}</MenuItem>
               </Select>
             </FormControl>
           </Grid>
 
           <Grid item xs={12}>
             <DateTimePickerComponent
-              label="Horário de Início da Alimentação"
+              label={t('reports.feed.start')}
               value={startTime}
               onChange={(dateTime) => setStartTime(dateTime)}
             />
@@ -122,7 +123,7 @@ const FormFood: React.FC<FormFoodProps> = ({
 
           <Grid item xs={12}>
             <DateTimePickerComponent
-              label="Horário de Fim da Alimentação"
+              label={t('reports.feed.end')}
               value={endTime}
               onChange={(dateTime) => setEndTime(dateTime)}
             />
@@ -131,13 +132,13 @@ const FormFood: React.FC<FormFoodProps> = ({
           {feedingType === 'mamadeira' && (
             <Grid item xs={12}>
               <TextField
-                label="Quantidade (ml)"
+                label={t('reports.feed.quantity')}
                 type="number"
                 fullWidth
                 value={quantity || ''}
                 onChange={(e) => setQuantity(Number(e.target.value))}
                 InputProps={{
-                  inputProps: { 
+                  inputProps: {
                     min: 0,
                     step: 10
                   }
@@ -148,26 +149,26 @@ const FormFood: React.FC<FormFoodProps> = ({
 
           {feedingType === 'seio' && (
             <Grid item xs={12}>
-              <Typography variant="subtitle1">Lado do Seio</Typography>
+              <Typography variant="subtitle1">{t('reports.feed.breast_side')}</Typography>
               <RadioGroup
                 row
                 value={breastSide}
                 onChange={(e) => setBreastSide(e.target.value as 'direito' | 'esquerdo' | 'ambos')}
               >
-                <FormControlLabel 
-                  value="direito" 
-                  control={<Radio />} 
-                  label="Direito" 
+                <FormControlLabel
+                  value="direito"
+                  control={<Radio />}
+                  label={t('reports.feed.right')}
                 />
-                <FormControlLabel 
-                  value="esquerdo" 
-                  control={<Radio />} 
-                  label="Esquerdo" 
+                <FormControlLabel
+                  value="esquerdo"
+                  control={<Radio />}
+                  label={t('reports.feed.left')}
                 />
-                <FormControlLabel 
-                  value="ambos" 
-                  control={<Radio />} 
-                  label="Ambos" 
+                <FormControlLabel
+                  value="ambos"
+                  control={<Radio />}
+                  label={t('reports.feed.both')}
                 />
               </RadioGroup>
             </Grid>
@@ -175,21 +176,23 @@ const FormFood: React.FC<FormFoodProps> = ({
 
           <Grid item xs={12}>
             <TextField
-              label="Observações"
+              label={t('reports.description')}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               fullWidth
               multiline
               rows={3}
-              placeholder="Detalhes sobre a alimentação (ex: bebê parecia satisfeito, engoliu bem)"
+              placeholder={t('reports.feed.description_placeholder')}
             />
           </Grid>
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancelar</Button>
-        <Button onClick={handleSave} variant="contained" color="primary">
-          Salvar
+        <Button onClick={onClose} color="secondary">
+          {t('common.cancel')}
+        </Button>
+        <Button onClick={handleSave} color="primary">
+          {t('common.save')}
         </Button>
       </DialogActions>
     </Dialog>

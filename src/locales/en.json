@@ -3,7 +3,7 @@
         "title": "BabyTrack",
         "navigation": {
             "home": "Home",
-            "dashboard": "Dashboard",
+            "dashboard": "DashBoard",
             "settings": "Settings"
         }
     },
@@ -11,13 +11,14 @@
         "developed_by": "Developed by Marcos Ryan",
         "all_rights_reserved": "©2024 Marcos Ryan. All rights reserved."
     },
+    "forgot_password": "Forgot Password?",
     "alert_title": "You Pressed the Button",
     "alert_text": "This is an alert text.",
     "button_alert": "Show Alert",
     "settings": {
         "title": "Settings",
-        "change_language": "Change Language",
         "logout": "Logout",
+        "change_language": "Change Language",
         "baby_info": {
             "title": "Baby Information",
             "name": {
@@ -56,5 +57,63 @@
         "password": "Password",
         "submit": "Submit",
         "signup": "Sign Up"
+    },
+    "reports": {
+        "title": "Reports",
+        "empty": "No reports available.",
+        "sleep": {
+            "title": "Sleep",
+            "start": "Sleep Start:",
+            "end": "Sleep End:",
+            "edit_title": "Edit Sleep Record",
+            "new_title": "New Sleep Record",
+            "time_error": "Start time must be before end time",
+            "description_placeholder": "Details about the sleep (e.g., slept deeply, woke up restless)"
+        },
+        "feed": {
+            "start": "Feeding Start:",
+            "end": "Feeding End:",
+            "bottle": "Bottle",
+            "breast": "Breast",
+            "quantity": "Quantity",
+            "breast_side": "Breast Side",
+            "right": "Right",
+            "left": "Left",
+            "both": "Both",
+            "time_error": "Start time must be before end time",
+            "edit_title": "Edit Feeding Record",
+            "new_title": "New Feeding Record",
+            "description_placeholder": "Details about the feeding (e.g., baby seemed satisfied, swallowed well)"
+        },
+        "diaper": {
+            "title": "Diaper Change",
+            "type": "Type:",
+            "pee": "Pee",
+            "poo": "Poo",
+            "status": "Diaper status:",
+            "time": "Change time:",
+            "clean": "Clean",
+            "wet": "Wet",
+            "dirty": "Dirty",
+            "both": "Both",
+            "edit_title": "Edit Diaper Record",
+            "new_title": "New Diaper Record"
+        },
+        "description": "Description:"
+    },
+    "common": {
+        "cancel": "Cancel",
+        "save": "Save"
+    },
+    "actions": {
+        "diaper": "Diaper",
+        "sleep": "Sleep",
+        "feed": "Feed"
+    },
+    "baby_info": {
+        "avatar_alt": "Baby",
+        "default_name": "Baby",
+        "length": "Length",
+        "weight": "Weight"
     }
 }

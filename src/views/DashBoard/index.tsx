@@ -4,9 +4,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { getReports, deleteReport } from "../../utils/localStorage";
 import Header from "../../Layout/Header";
 import Footer from "../../Layout/Footer";
+import { useLanguage } from "../../context/Translation/language";
 
 export default function Reports() {
     const [reports, setReports] = useState<any[]>([]);
+    const { t } = useLanguage();
 
     useEffect(() => {
         const storedReports = getReports();
@@ -23,11 +25,11 @@ export default function Reports() {
             <Header />
             <Box sx={{ mt: 4, backgroundColor: "#ffffff", padding: 2, borderRadius: 2 }}>
                 <Typography variant="h6" gutterBottom>
-                    Relatórios
+                    {t("reports.title")}
                 </Typography>
                 {reports.length === 0 ? (
                     <Typography variant="body2" color="textSecondary">
-                        Aqui aparecerão os registros recentes.
+                        {t("reports.empty")}
                     </Typography>
                 ) : (
                     reports.map((report) => (
@@ -44,23 +46,23 @@ export default function Reports() {
                             <Box>
                                 {report.type === "sono" && (
                                     <>
-                                        <Typography variant="body1">Sono</Typography>
+                                        <Typography variant="body1">{t("reports.sleep.title")}</Typography>
                                         <Typography variant="body2" color="textSecondary">
-                                            Início do Sono: {new Date(report.startTime).toLocaleString()}
+                                            {t("reports.sleep.start")} {new Date(report.startTime).toLocaleString()}
                                         </Typography>
                                         <Typography variant="body2" color="textSecondary">
-                                            Fim do Sono: {new Date(report.endTime).toLocaleString()}
+                                            {t("reports.sleep.end")} {new Date(report.endTime).toLocaleString()}
                                         </Typography>
                                     </>
                                 )}
                                 {report.type === "fralda" && (
                                     <>
-                                        <Typography variant="body1">Troca de Fralda</Typography>
+                                        <Typography variant="body1">{t("reports.diaper.title")}</Typography>
                                         <Typography variant="body2" color="textSecondary">
-                                            Hora da troca: {new Date(report.dateTime).toLocaleString()}
+                                            {t("reports.diaper.time")}{new Date(report.dateTime).toLocaleString()}
                                         </Typography>
                                         <Typography variant="body2" color="textSecondary">
-                                            Status da fralda: {report.diaperStatus}
+                                            {t("reports.diaper.status")} {report.diaperStatus}
                                         </Typography>
                                     </>
                                 )}
@@ -68,19 +70,19 @@ export default function Reports() {
                                     <>
                                         <Typography variant="body1">
                                             {report.feedingType === "mamadeira"
-                                                ? `Mamadeira (${report.quantity}ml)`
-                                                : `Amamentação (${report.breastSide})`}
+                                                ? `${t("reports.feed.bottle")} (${report.quantity}ml)`
+                                                : `${t("reports.feed.milk")} (${report.breastSide})`}
                                         </Typography>
                                         <Typography variant="body2" color="textSecondary">
-                                            Início: {new Date(report.startTime).toLocaleString()}
+                                            {t("reports.feed.start")} {new Date(report.startTime).toLocaleString()}
                                         </Typography>
                                         <Typography variant="body2" color="textSecondary">
-                                            Fim: {new Date(report.endTime).toLocaleString()}
+                                            {t("reports.feed.end")} {new Date(report.endTime).toLocaleString()}
                                         </Typography>
                                     </>
                                 )}
                                 <Typography variant="body2" color="textSecondary">
-                                    Descrição: {report.description}
+                                    {t("reports.description")} {report.description}
                                 </Typography>
                             </Box>
                             <Box>

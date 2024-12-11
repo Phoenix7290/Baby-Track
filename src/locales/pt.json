@@ -3,7 +3,7 @@
         "title": "BabyTrack",
         "navigation": {
             "home": "Início",
-            "form": "Formulário",
+            "dashboard": "Painel de Controle",
             "settings": "Configurações"
         }
     },
@@ -17,6 +17,7 @@
     "button_alert": "Mostrar Alerta",
     "settings": {
         "title": "Configurações",
+        "logout": "Sair",
         "change_language": "Mudar Idioma",
         "baby_info": {
             "title": "Informações do Bebê",
@@ -56,5 +57,63 @@
         "password": "Senha",
         "submit": "Enviar",
         "signup": "Registrar-se"
+    },
+    "reports": {
+        "title": "Relatórios",
+        "empty": "Nenhum relatório disponível.",
+        "sleep": {
+            "title": "Sono",
+            "start": "Início do Sono:",
+            "end": "Fim do Sono:",
+            "edit_title": "Editar Registro de Sono",
+            "new_title": "Novo Registro de Sono",
+            "time_error": "A hora de início deve ser antes da hora de fim",
+            "description_placeholder": "Detalhes sobre o sono (por exemplo, dormiu profundamente, acordou inquieto)"
+        },
+        "feed": {
+            "start": "Início da Alimentação:",
+            "end": "Fim da Alimentação:",
+            "bottle": "Mamadeira",
+            "breast": "Seio",
+            "quantity": "Quantidade",
+            "breast_side": "Lado do Seio",
+            "right": "Direito",
+            "left": "Esquerdo",
+            "both": "Ambos",
+            "time_error": "A hora de início deve ser antes da hora de fim",
+            "edit_title": "Editar Registro de Alimentação",
+            "new_title": "Novo Registro de Alimentação",
+            "description_placeholder": "Detalhes sobre a alimentação (por exemplo, o bebê parecia satisfeito, engoliu bem)"
+        },
+        "diaper": {
+            "title": "Troca de Fralda",
+            "type": "Tipo:",
+            "pee": "Xixi",
+            "poo": "Cocô",
+            "status": "Estado da fralda:",
+            "time": "Hora da troca:",
+            "clean": "Limpa",
+            "wet": "Molhada",
+            "dirty": "Suja",
+            "both": "Ambas",
+            "edit_title": "Editar Registro de Fralda",
+            "new_title": "Novo Registro de Fralda"
+        },
+        "description": "Descrição:"
+    },
+    "common": {
+        "cancel": "Cancelar",
+        "save": "Salvar"
+    },
+    "actions": {
+        "diaper": "Fralda",
+        "sleep": "Sono",
+        "feed": "Alimentar"
+    },
+    "baby_info": {
+        "avatar_alt": "Bebê",
+        "default_name": "Bebê",
+        "length": "Comprimento",
+        "weight": "Peso"
     }
 }

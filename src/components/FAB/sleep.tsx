@@ -9,6 +9,7 @@ import {
   Grid 
 } from '@mui/material';
 import DateTimePickerComponent from '../Dates/DateTimePicker';
+import { useLanguage } from '../../context/Translation/language';
 
 interface FormSleepProps {
   open: boolean;
@@ -41,7 +42,8 @@ const FormSleep: React.FC<FormSleepProps> = ({
     initialData?.description || ''
   );
 
-  // Reset fields when modal closes
+  const { t } = useLanguage();
+
   useEffect(() => {
     if (!open) {
       setStartTime(null);
@@ -51,9 +53,8 @@ const FormSleep: React.FC<FormSleepProps> = ({
   }, [open]);
 
   const handleSave = () => {
-    // Validate that start time is before end time
     if (startTime && endTime && startTime > endTime) {
-      alert('Horário de início deve ser anterior ao horário de fim');
+      alert(t('reports.sleep.time_error'));
       return;
     }
 
@@ -74,35 +75,37 @@ const FormSleep: React.FC<FormSleepProps> = ({
         <Grid container spacing={2} sx={{ mt: 1 }}>
           <Grid item xs={12}>
             <DateTimePickerComponent
-              label="Horário de Início do Sono"
+              label={t('reports.sleep.start')}
               value={startTime}
               onChange={(dateTime) => setStartTime(dateTime)}
             />
           </Grid>
           <Grid item xs={12}>
             <DateTimePickerComponent
-              label="Horário de Fim do Sono"
+              label={t('reports.sleep.end')}
               value={endTime}
               onChange={(dateTime) => setEndTime(dateTime)}
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
-              label="Descrição do Sono"
+              label={t('reports.description')}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               fullWidth
               multiline
               rows={3}
-              placeholder="Detalhes sobre o sono (ex: dormiu profundamente, acordou inquieto)"
+              placeholder={t("reports.sleep.description_placeholder")}
             />
           </Grid>
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancelar</Button>
-        <Button onClick={handleSave} variant="contained" color="primary">
-          Salvar
+        <Button onClick={onClose} color="secondary">
+          {t('common.cancel')}
+        </Button>
+        <Button onClick={handleSave} color="primary">
+          {t('common.save')}
         </Button>
       </DialogActions>
     </Dialog>
