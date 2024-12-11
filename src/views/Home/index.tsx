@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box, Typography, Grid, Button, Avatar, Paper } from "@mui/material";
+import { Box, Typography, Grid, Button, Avatar, Paper, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import Footer from "../../Layout/Footer";
 import Header from "../../Layout/Header";
 import { FabSleep, FabDiaper, FabFood } from "../../components/FAB/index.tsx"
@@ -16,6 +16,7 @@ export default function Home() {
   const [reports, setReports] = useState<any[]>([]);
   const [editingReport, setEditingReport] = useState<any | null>(null);
   const { babyInfo } = useBabyContext();
+  const [reportFilter, setReportFilter] = useState<string>('todos');
   const age = babyInfo.birthDate
     ? calculateAge(new Date(babyInfo.birthDate))
     : '0 dias';
@@ -60,6 +61,14 @@ export default function Home() {
     setOpenModal(null);
   };
 
+  const handleReportFilter = (event: any) => {
+    setReportFilter(event.target.value);
+  };
+
+  const filteredReports = reportFilter === 'todos'
+    ? reports
+    : reports.filter(report => report.type === reportFilter);
+
   return (
     <>
       <Header />
@@ -94,6 +103,23 @@ export default function Home() {
             </Paper>
           </Grid>
         </Grid>
+
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <Typography variant="h6">{t("reports.title")}</Typography>
+          <FormControl variant="outlined" size="small" sx={{ minWidth: 120 }}>
+            <InputLabel>{t("reports.filter")}</InputLabel>
+            <Select
+              value={reportFilter}
+              onChange={handleReportFilter}
+              label={t("reports.filter")}
+            >
+              <MenuItem value="todos">{t("reports.filter_all")}</MenuItem>
+              <MenuItem value="fralda">{t("actions.diaper")}</MenuItem>
+              <MenuItem value="sono">{t("actions.sleep")}</MenuItem>
+              <MenuItem value="alimentacao">{t("actions.feed")}</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
 
         <Grid container justifyContent="center" spacing={2} sx={{ mb: 4 }}>
           <Grid item>
@@ -132,12 +158,12 @@ export default function Home() {
           <Typography variant="h6" gutterBottom>
             {t("reports.title")}
           </Typography>
-          {reports.length === 0 ? (
+          {filteredReports.length === 0 ? (
             <Typography variant="body2" color="textSecondary">
               {t("reports.empty")}
             </Typography>
           ) : (
-            reports.map((report) => (
+            filteredReports.map((report) => (
               <Paper key={report.id} sx={{ p: 2, mb: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <Box>
                   <Typography variant="body1">

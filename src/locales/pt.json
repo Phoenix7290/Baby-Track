@@ -61,6 +61,7 @@
     "reports": {
         "title": "Relatórios",
         "empty": "Nenhum relatório disponível.",
+        "filter_all": "Todos",
         "sleep": {
             "title": "Sono",
             "start": "Início do Sono:",

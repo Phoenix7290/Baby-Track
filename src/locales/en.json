@@ -61,6 +61,7 @@
     "reports": {
         "title": "Reports",
         "empty": "No reports available.",
+        "filter_all": "All",
         "sleep": {
             "title": "Sleep",
             "start": "Sleep Start:",

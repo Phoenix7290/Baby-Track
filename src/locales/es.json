@@ -61,6 +61,7 @@
     "reports": {
         "title": "Informes",
         "empty": "No hay informes disponibles.",
+        "filter_all": "Todos",
         "sleep": {
             "title": "Sueño",
             "start": "Inicio del Sueño:",
